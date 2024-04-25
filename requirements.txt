@@ -1,0 +1,5 @@
+asciichartpy==1.5.25
+nvidia_ml_py==12.535.133
+psutil==5.9.8
+rich==13.7.1
+nuitka
