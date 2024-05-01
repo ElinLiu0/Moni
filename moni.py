@@ -72,11 +72,13 @@ class Moni:
             try:
                 process_table.add_row(str(p.pid), p.username(), p.name(), p.status(), str(round(p.cpu_percent(), 2)) + "%", str(round(p.memory_percent(), 2)) + "%", p.cmdline()[0] if p.cmdline() else "")
             except pt.NoSuchProcess:
-                continue
+                pass
             except pt.AccessDenied:
-                continue
+                pass
             except pt.ZombieProcess:
-                continue
+                pass
+            except FileNotFoundError:
+                pass
         self.console.print(f"Total Process: {len(self.process_list)}, Running: {running_process_count}, Sleeping: {sleeping_process_count}, Stopped: {stopped_process_count}, Zombie: {zombie_process_count}")
         self.console.print(f"Shows TOP10 high utilized process:")
         self.console.print(process_table)
